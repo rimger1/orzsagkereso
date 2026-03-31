@@ -1,5 +1,12 @@
 body{
     text-align: center;
-    background-color: fuchsia;
-    color: dodgerblue;
+    background-color: aqua;
+    color: fuchsia;
+}
+#kereso{
+    background-color: indigo;
+    border: khaki 5px solid;
+    padding: 10px;
+    font-size: xx-large;
+    color: coral;
 }

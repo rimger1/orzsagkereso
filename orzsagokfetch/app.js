@@ -1,20 +1,32 @@
 const kereso = document.getElementById("kereso")
 const container = document.getElementById("container")
+const gomb = document.getElementById("gomb")
 
 let orszag = ""
 
-kereso.addEventListener("keydown", function(nyom) {
-    if (nyom.key === "Enter") {
-        Indit();
+gomb.addEventListener("click", keres)
+
+kereso.addEventListener("keydown", function(muchogusto) {
+    if (muchogusto.key === "Enter") {
+        keres()
     }
 });
 
-async function Indit(){
+function keres(){
     container.innerHTML=""
+    const tolto = document.createElement("img")
+    tolto.src="loading.gif"
+    tolto.style.height="800px"
+    tolto.style.width="1800px"
+    container.appendChild(tolto)
+    Indit();
+}
+
+async function Indit(){
     orszag=kereso.value
     try{
         const valasz = await fetch(`https://restcountries.com/v3.1/name/${orszag}`)
-
+        container.innerHTML=""
         const adatok = await valasz.json()
 
         adatok.forEach(e => {
@@ -59,7 +71,6 @@ async function Indit(){
                 zaszlo.style.width="200px"
                 zaszlo.style.height="100px"
                 card.style.backgroundColor="greenyellow"
-
         })
     }
     catch(e){
@@ -69,7 +80,7 @@ async function Indit(){
 
         const hiba = document.createElement("p")
         hiba.setAttribute("class", "hiba")
-        hiba.textContent=e
+        hiba.textContent=e.message
         card.appendChild(hiba)
 
 
@@ -80,8 +91,6 @@ async function Indit(){
         card.style.display = "inline-block"
         card.style.margin="5px"
         container.style.margin="5px"
-        zaszlo.style.width="200px"
-        zaszlo.style.height="100px"
         card.style.backgroundColor="greenyellow"
 
     }
