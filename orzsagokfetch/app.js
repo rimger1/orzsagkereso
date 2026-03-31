@@ -26,9 +26,13 @@ async function Indit(){
     orszag=kereso.value
     try{
         const valasz = await fetch(`https://restcountries.com/v3.1/name/${orszag}`)
-        container.innerHTML=""
-        const adatok = await valasz.json()
 
+        const adatok = await valasz.json()
+        container.innerHTML=""
+
+        if (!valasz.ok) {
+            throw new Error("Nincs ilyen ország!")
+        }
         adatok.forEach(e => {
                 const card = document.createElement("div")
                 card.setAttribute("class", "card")

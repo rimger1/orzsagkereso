@@ -10,3 +10,12 @@ body{
     font-size: xx-large;
     color: coral;
 }
+#gomb{
+    all: unset;
+    border: #ff1a00 solid 5px;
+    margin-left: 60px;
+    padding: 10px;
+    font-size: xx-large;
+    background-color: darkblue;
+    color: #009b00;
+}
