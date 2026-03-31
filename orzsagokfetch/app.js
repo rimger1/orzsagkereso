@@ -9,14 +9,15 @@ kereso.addEventListener("keydown", function(nyom) {
     }
 });
 
-function Indit(){
+async function Indit(){
     container.innerHTML=""
     orszag=kereso.value
     try{
-        fetch(`https://restcountries.com/v3.1/name/${orszag}`)
-        .then(valasz => valasz.json())
-        .then(adatok => {
-            adatok.forEach(e => {
+        const valasz = await fetch(`https://restcountries.com/v3.1/name/${orszag}`)
+
+        const adatok = await valasz.json()
+
+        adatok.forEach(e => {
                 const card = document.createElement("div")
                 card.setAttribute("class", "card")
                 container.appendChild(card)
@@ -45,10 +46,43 @@ function Indit(){
                 zaszlo.setAttribute("class", "kep")
                 zaszlo.src=e.flags.png
                 card.appendChild(zaszlo)
-            });
-        })    
+                
+
+
+                card.style.border="solid 4px black"
+                card.style.width="30%"
+                card.style.borderRadius="25px"
+                card.style.textAlign="center"
+                card.style.display = "inline-block"
+                card.style.margin="5px"
+                container.style.margin="5px"
+                zaszlo.style.width="200px"
+                zaszlo.style.height="100px"
+                card.style.backgroundColor="greenyellow"
+
+        })
     }
-    catch(hiba){
-        //hiba kiiras
+    catch(e){
+        const card = document.createElement("div")
+        card.setAttribute("class", "card")
+        container.appendChild(card)
+
+        const hiba = document.createElement("p")
+        hiba.setAttribute("class", "hiba")
+        hiba.textContent=e
+        card.appendChild(hiba)
+
+
+        card.style.border="solid 4px black"
+        card.style.width="30%"
+        card.style.borderRadius="25px"
+        card.style.textAlign="center"
+        card.style.display = "inline-block"
+        card.style.margin="5px"
+        container.style.margin="5px"
+        zaszlo.style.width="200px"
+        zaszlo.style.height="100px"
+        card.style.backgroundColor="greenyellow"
+
     }
 }
