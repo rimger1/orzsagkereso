@@ -1,4 +1,9 @@
 body{
+    background-image: url(szorny.png);
+    background-repeat: no-repeat;
+    background-size: 680px;
+    background-position: center;
+    background-position-y: 19px;
     text-align: center;
     background-color: #FF00E7;
     color: fuchsia;
