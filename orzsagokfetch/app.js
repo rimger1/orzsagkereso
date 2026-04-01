@@ -74,7 +74,7 @@ async function Indit(){
                 container.style.margin="5px"
                 zaszlo.style.width="200px"
                 zaszlo.style.height="100px"
-                card.style.backgroundColor="greenyellow"
+                card.style.backgroundColor="#A3FF00"
         })
     }
     catch(e){
@@ -95,7 +95,7 @@ async function Indit(){
         card.style.display = "inline-block"
         card.style.margin="5px"
         container.style.margin="5px"
-        card.style.backgroundColor="greenyellow"
+        card.style.backgroundColor="#A3FF00"
 
     }
 }

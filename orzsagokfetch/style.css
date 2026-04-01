@@ -1,10 +1,10 @@
 body{
     text-align: center;
-    background-color: aqua;
+    background-color: #FF00E7;
     color: fuchsia;
 }
 #kereso{
-    background-color: indigo;
+    background-color: #00ECFF;
     border: khaki 5px solid;
     padding: 10px;
     font-size: xx-large;
